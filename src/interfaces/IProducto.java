@@ -9,5 +9,7 @@ package interfaces;
  * @author HOME
  */
 public interface IProducto {
-    
+    void mostrarDetalles();
+    void actualizarPrecio(double precioNuevo);
+    void aplicarDescuento(double descuento);
 }
