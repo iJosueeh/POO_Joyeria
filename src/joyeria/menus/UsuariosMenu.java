@@ -7,13 +7,16 @@ package joyeria.menus;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import joyeria.modelo.usuarios.Usuario;
 
 public class UsuariosMenu {
 
-    private Map<String, String> usuariosRegistrados;
+    private Map<Integer, Usuario> usuariosRegistrados;
+    private int idUsuario;
 
     public UsuariosMenu() {
         usuariosRegistrados = new HashMap<>();
+        idUsuario = 1;
     }
 
     public void mostrarMenu(Scanner scanner) {
@@ -102,17 +105,17 @@ public class UsuariosMenu {
         System.out.print("Ingresa su contraseña: ");
         String contraseñaUsuario = scanner.nextLine();
 
-        // Verificando si el usuario y contraseña coinciden
-        if (usuariosRegistrados.containsKey(nombreUsuario) && usuariosRegistrados.get(nombreUsuario).equals(contraseñaUsuario)) {
-            System.out.println("Inicio de Sesión exitoso.");
-            return true;
-        } else {
-            System.out.println("Nombre de usuario y/o contraseña incorrecto.");
-            return false;
+        // Verificando si el nombre de usuario existe y la contraseña es correcta
+        for (Usuario usuario : usuariosRegistrados.values()) {
+            if (usuario.getNombre().equals(nombreUsuario) && usuario.getContraseña().equals(contraseñaUsuario)) {
+                System.out.println("Inicio de Sesión exitoso.");
+                return true;
+            }
         }
-    }
 
-    ;
+        System.out.println("Nombre de usuario y/o contraseña incorrecto.");
+        return false;
+    }
 
     private boolean registrarUsuario(Scanner scanner) {
         scanner.nextLine();
@@ -124,15 +127,21 @@ public class UsuariosMenu {
         System.out.print("Ingrese un nombre de usuario: ");
         String nuevoNombre = scanner.nextLine();
 
-        if (usuariosRegistrados.containsKey(nuevoNombre)) {
-            System.out.println("Nombre de usuario ya registrado.");
-            return false;
+        for (Usuario usuario : usuariosRegistrados.values()) {
+            if (usuario.getNombre().equals(nuevoNombre)) {
+                System.out.println("Nombre de usuario ya registrado.");
+                return false;
+            }
         }
 
         System.out.print("Ingresa una nueva contraseña: ");
         String nuevaContraseña = scanner.nextLine();
 
-        usuariosRegistrados.put(nuevoNombre, nuevaContraseña);
+        Usuario nuevoUsuario = new Usuario(idUsuario, nuevoNombre, nuevaContraseña);
+        usuariosRegistrados.put(idUsuario, nuevoUsuario);
+
+        idUsuario++;
+
         System.out.println("Usuario registrado correctamente, ya puede iniciar sesión.\n");
         return iniciarSesion(scanner);
     }
