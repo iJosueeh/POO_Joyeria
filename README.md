@@ -62,7 +62,7 @@ git commit -m "Añadir nueva característica"
 ```
 - Envía un pull request.
 
-## License
+## Licencia
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
