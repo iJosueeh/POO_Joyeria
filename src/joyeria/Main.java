@@ -16,7 +16,6 @@ import joyeria.menus.UsuariosMenu;
     - Luis Angel Blas Caja
     - Katherine Patricia Salas Quiroz
     - Ashley Dhayana Chavez Coz
-
 */
 
 public class Main {
