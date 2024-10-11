@@ -4,10 +4,6 @@
  */
 package joyeria.interfaces;
 
-/**
- *
- * @author HOME
- */
 public interface IGestionPedido {
     
 }

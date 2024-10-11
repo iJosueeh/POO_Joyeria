@@ -4,10 +4,6 @@
  */
 package joyeria.modelo.productos;
 
-/**
- *
- * @author HOME
- */
 public class Cupon {
     
 }

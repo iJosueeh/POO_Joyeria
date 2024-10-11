@@ -4,10 +4,7 @@
  */
 package joyeria.modelo.productos;
 
-/**
- *
- * @author HOME
- */
+
 public class Proveedor {
     
 }

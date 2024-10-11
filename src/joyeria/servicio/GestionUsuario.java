@@ -4,10 +4,6 @@
  */
 package joyeria.servicio;
 
-/**
- *
- * @author HOME
- */
 public class GestionUsuario {
     
 }

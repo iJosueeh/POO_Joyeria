@@ -4,10 +4,6 @@
  */
 package joyeria.modelo.compras;
 
-/**
- *
- * @author HOME
- */
 public class CarritoCompras {
     
 }

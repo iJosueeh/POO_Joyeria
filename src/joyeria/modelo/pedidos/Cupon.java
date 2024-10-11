@@ -4,7 +4,6 @@
  */
 package joyeria.modelo.pedidos;
 
-
 public class Cupon {
     
 }

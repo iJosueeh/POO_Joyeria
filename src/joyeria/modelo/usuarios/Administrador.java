@@ -4,10 +4,6 @@
  */
 package joyeria.modelo.usuarios;
 
-/**
- *
- * @author HOME
- */
 public class Administrador {
     
 }

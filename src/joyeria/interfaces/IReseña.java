@@ -4,10 +4,7 @@
  */
 package joyeria.interfaces;
 
-/**
- *
- * @author HOME
- */
+
 public interface IReseña {
     
 }

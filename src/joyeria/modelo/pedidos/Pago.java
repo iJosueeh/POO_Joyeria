@@ -4,10 +4,6 @@
  */
 package joyeria.modelo.pedidos;
 
-/**
- *
- * @author HOME
- */
 public class Pago {
     
 }
