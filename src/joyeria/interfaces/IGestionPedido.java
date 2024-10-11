@@ -2,14 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package interfaces;
+package joyeria.interfaces;
 
 /**
  *
  * @author HOME
  */
-public interface IProducto {
-    void mostrarDetalles();
-    void actualizarPrecio(double precioNuevo);
-    void aplicarDescuento(double descuento);
+public interface IGestionPedido {
+    
 }
