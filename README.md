@@ -22,6 +22,7 @@ Primer avance de nuestro proyecto para el curso de **Programación Orientada a O
 - [@iJosueeh](https://github.com/iJosueeh)
 - [@Katherine16-gif](https://github.com/Katherine16-gif)
 - [@Angel200202](https://github.com/Angel200202)
+- [@Ashdhaya](https://github.com/Ashdhaya) 
 
 ## Caracteristicas
 
