@@ -5,8 +5,8 @@
 package joyeria;
 
 import java.util.Scanner;
-import joyeria.menus.AdminMenu;
-import joyeria.menus.UsuariosMenu;
+import joyeria.menus.roles.AdminMenu;
+import joyeria.menus.roles.UsuariosMenu;
 
 /*
     Proyecto: Joyeria - Tienda Online
