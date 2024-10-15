@@ -12,14 +12,15 @@ import joyeria.modelo.usuarios.Cliente;
 
 public class Pedido {
 
+    private int contador = 1;
     private int idPedido;
     private Cliente cliente;
     private Map<Producto, Integer> productos;
     private LocalDate fechaPedido;
     private double total;
 
-    public Pedido(int idPedido, Cliente cliente, LocalDate fechaPedido) {
-        this.idPedido = idPedido;
+    public Pedido(Cliente cliente, LocalDate fechaPedido) {
+        this.idPedido = contador++;
         this.cliente = cliente;
         this.productos = new HashMap<>();
         this.fechaPedido = fechaPedido;
