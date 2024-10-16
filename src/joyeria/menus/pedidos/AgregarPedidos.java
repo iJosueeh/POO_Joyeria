@@ -10,43 +10,78 @@ import java.util.Scanner;
 import joyeria.modelo.pedidos.Pedido;
 import joyeria.modelo.productos.Producto;
 import joyeria.modelo.usuarios.Cliente;
+import joyeria.servicio.GestionPedido;
+import joyeria.servicio.GestionUsuario;
 
 public class AgregarPedidos {
 
     List<Producto> productosDisponibles;
+    GestionPedido gestionarPedido;
+    List<Cliente> clientes;
+    GestionUsuario gestionarUsuarios;
 
     public AgregarPedidos() {
         this.productosDisponibles = productosDisponibles;
+        this.gestionarPedido = gestionarPedido;
+        this.clientes = clientes;
+        this.gestionarUsuarios = gestionarUsuarios;
     }
 
-    public void mostrarMenu(Scanner scanner, Cliente cliente) {
-
-        if (cliente == null) {
-            System.out.println("El cliente no fue encontrado o no fue proporcionado correctamente.");
-            return; 
-        }
+    public void mostrarMenu(Scanner scanner) {
 
         System.out.println("Ingresa el nombre del Cliente: ");
         String nombreCliente = scanner.nextLine();
 
-        if (cliente.getNombre().equalsIgnoreCase(nombreCliente)) {
-            System.out.println("Cliente encontrado: " + cliente.getNombre());
-            System.out.println("Productos disponibles: ");
+        Cliente cliente = gestionarUsuarios.buscarClientePorNombre(nombreCliente, clientes);
 
-            for (Producto producto : productosDisponibles) {
-                if (producto.equals(cliente.getIdUsuario())) {
-                    System.out.println("- ID " + producto.getId_Producto() + ", Nombre: " + producto.getNombre() + ", Precio: " + producto.getPrecio());
-                }
-            }
-
-            LocalDate fechaActual = LocalDate.now();
-            Pedido nuevoPedido = new Pedido(cliente, fechaActual);
-
-            cliente.getHistorialDePedidos().add(nuevoPedido);
-            System.out.println("Pedido finalizado. Total del pedido: " + nuevoPedido.getTotal());
-        } else {
-            System.out.println("Cliente no encontrado.");
+        if (cliente == null) {
+            System.out.println("El cliente no fue encontrado o no fue proporcionado correctamente.");
+            return;
         }
 
+        System.out.println("Cliente encontrado: " + cliente.getNombre());
+        System.out.println("Productos disponibles: ");
+
+        for (Producto producto : productosDisponibles) {
+            if (producto.equals(cliente.getIdUsuario())) {
+                System.out.println("- ID " + producto.getId_Producto() + ", Nombre: " + producto.getNombre() + ", Precio: " + producto.getPrecio());
+            }
+        }
+
+        LocalDate fechaActual = LocalDate.now();
+        Pedido nuevoPedido = new Pedido(cliente, fechaActual);
+
+        do {
+            System.out.println("Ingresa el ID del producto que deseas agregar al pedido:  ");
+            int idProducto = scanner.nextInt();
+
+            if (idProducto == -1) {
+                break;
+            }
+
+            Producto idEncontrado = gestionarPedido.buscarProductoID(idProducto);
+
+            if (idEncontrado == null) {
+                System.out.println("Producto no encontrado, intente de nuevo!");
+
+            } else {
+                System.out.println("Ingresa la cantidad de " + idEncontrado.getNombre() + ": ");
+                int cantidad = scanner.nextInt();
+
+                nuevoPedido.agregarPedido(idEncontrado, cantidad);
+                System.out.println("Producto agregado al pedido: " + idEncontrado.getNombre() + ", Cantidad: " + cantidad);
+            }
+
+        } while (true);
+
+        if (nuevoPedido.getProductos().isEmpty()) {
+            System.out.println("No se agregaron productos al pedido. Pedido Cancelado");
+            return;
+        }
+
+        gestionarPedido.realizarPedido(nuevoPedido);
+
+        cliente.getHistorialDePedidos().add(nuevoPedido);
+        System.out.println("Pedido finalizado. Total del pedido: " + nuevoPedido.getTotal());
     }
 }

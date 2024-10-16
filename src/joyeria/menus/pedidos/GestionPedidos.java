@@ -19,7 +19,7 @@ public class GestionPedidos {
         this.mostrarPedidos = new MostrarPedidos();
     }
 
-    public void mostrarMenu(Scanner scanner, Cliente cliente) {
+    public void mostrarMenu(Scanner scanner) {
         boolean continuarMenu = true;
 
         do {
@@ -38,7 +38,7 @@ public class GestionPedidos {
 
             switch (opcionMenu) {
                 case 1:
-                    agregarPedidos.mostrarMenu(scanner, cliente);
+                    agregarPedidos.mostrarMenu(scanner);
                     break;
                 case 2:
                     eliminarPedidos.mostrarMenu(scanner);
