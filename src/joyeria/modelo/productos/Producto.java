@@ -5,6 +5,7 @@ import java.util.List;
 public class Producto {
 
     //Atributos
+    private int contador;
     private int id_Producto;
     private String nombre;
     private String descripcion;
@@ -14,7 +15,7 @@ public class Producto {
     private List<Proveedor> proveedores;
 
     public Producto(int id_Producto, String nombre, String descripcion, double precio, int stock, List<Proveedor> proveedores) {
-        this.id_Producto = id_Producto;
+        this.id_Producto = contador++;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;

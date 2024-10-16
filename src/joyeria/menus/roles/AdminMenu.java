@@ -9,6 +9,7 @@ import joyeria.menus.CuponesYReseñas.GestionCupones;
 import joyeria.menus.CuponesYReseñas.GestionReseñas;
 import joyeria.menus.pedidos.GestionPedidos;
 import joyeria.menus.usuarios.GestionUsuario;
+import joyeria.modelo.usuarios.Cliente;
 
 public class AdminMenu {
     
@@ -16,6 +17,7 @@ public class AdminMenu {
     GestionCupones menuCupones = new GestionCupones();
     GestionPedidos menuPedidos = new GestionPedidos();
     GestionUsuario menuUsuario = new GestionUsuario();
+    Cliente cliente;
     
     public void mostrarMenu(Scanner scanner) {
         boolean continuarMenu = true;
@@ -43,7 +45,7 @@ public class AdminMenu {
                     System.out.println("Gestion de Productos");
                     break;
                 case 3:
-                    menuPedidos.mostrarMenu(scanner);
+                    menuPedidos.mostrarMenu(scanner, cliente);
                     break;
                 case 4:
                     menuCupones.mostrarMenu(scanner);
