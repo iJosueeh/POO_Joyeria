@@ -22,9 +22,9 @@ public class AgregarPedidos {
 
     public AgregarPedidos() {
         this.productosDisponibles = productosDisponibles;
-        this.gestionarPedido = gestionarPedido;
         this.clientes = clientes;
-        this.gestionarUsuarios = gestionarUsuarios;
+        this.gestionarUsuarios = new GestionUsuario();
+        this.gestionarUsuarios = new GestionUsuario();
     }
 
     public void mostrarMenu(Scanner scanner) {
@@ -34,7 +34,7 @@ public class AgregarPedidos {
 
         Cliente cliente = gestionarUsuarios.buscarClientePorNombre(nombreCliente, clientes);
 
-        if (cliente == null) {
+        if (cliente == null && clientes.isEmpty()) {
             System.out.println("El cliente no fue encontrado o no fue proporcionado correctamente.");
             return;
         }

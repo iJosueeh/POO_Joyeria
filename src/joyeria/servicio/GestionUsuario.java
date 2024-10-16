@@ -4,12 +4,19 @@
  */
 package joyeria.servicio;
 
+import java.util.ArrayList;
 import java.util.List;
 import joyeria.interfaces.IUsuario;
 import joyeria.modelo.usuarios.Cliente;
 import joyeria.modelo.usuarios.Usuario;
 
 public class GestionUsuario implements IUsuario {
+
+    private List<Cliente> listaCliente;
+
+    public GestionUsuario() {
+        this.listaCliente = new ArrayList<>();
+    }
 
     @Override
     public Cliente buscarClientePorId(int idCliente, List<Cliente> listaCliente) {
@@ -26,7 +33,9 @@ public class GestionUsuario implements IUsuario {
         for (Cliente cliente : listaCliente) {
            if (cliente.getNombre().equalsIgnoreCase(nombreCliente)) {
                return cliente;
-           } 
+           } else {
+               System.out.println("No hay clientes registrados.");
+           }
         }
         return null;
     }

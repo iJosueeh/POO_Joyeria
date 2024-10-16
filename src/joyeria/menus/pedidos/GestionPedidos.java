@@ -5,7 +5,6 @@
 package joyeria.menus.pedidos;
 
 import java.util.Scanner;
-import joyeria.modelo.usuarios.Cliente;
 
 public class GestionPedidos {
 

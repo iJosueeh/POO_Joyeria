@@ -9,7 +9,6 @@ import joyeria.menus.CuponesYReseñas.GestionCupones;
 import joyeria.menus.CuponesYReseñas.GestionReseñas;
 import joyeria.menus.pedidos.GestionPedidos;
 import joyeria.menus.usuarios.GestionUsuario;
-import joyeria.modelo.usuarios.Cliente;
 
 public class AdminMenu {
 
