@@ -17,7 +17,7 @@ public class Cliente extends Usuario {
     private String telefono;
     private Set<Pedido> historialDePedidos;
 
-    public Cliente(Direccion direccion, String correo, String telefono, Set<Pedido> historialDePedidos, int idUsuario, String nombre, String contraseña) {
+    public Cliente(int idUsuario, String nombre, String contraseña, Direccion direccion, String correo, String telefono) {
         super(idUsuario, nombre, contraseña);
         this.direccion = direccion;
         this.correo = correo;

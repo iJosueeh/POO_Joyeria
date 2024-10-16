@@ -5,14 +5,15 @@
 package joyeria.menus.pedidos;
 
 import java.util.Scanner;
+import joyeria.modelo.usuarios.Cliente;
 
 public class GestionPedidos {
     
-    AgregarPedidos agregarPedidos = new AgregarPedidos();
-    EliminarPedidos eliminarPedidos = new EliminarPedidos();
-    MostrarPedidos mostrarPedidos = new MostrarPedidos();
+    AgregarPedidos agregarPedidos;
+    EliminarPedidos eliminarPedidos;
+    MostrarPedidos mostrarPedidos;
     
-    public void mostrarMenu(Scanner scanner) {
+    public void mostrarMenu(Scanner scanner, Cliente cliente) {
         boolean continuarMenu = true;
         
         do {
@@ -31,7 +32,7 @@ public class GestionPedidos {
             
             switch (opcionMenu) {
                 case 1:
-                    agregarPedidos.mostrarMenu(scanner);
+                    agregarPedidos.mostrarMenu(scanner, cliente);
                     break;
                 case 2:
                     eliminarPedidos.mostrarMenu(scanner);
