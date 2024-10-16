@@ -10,13 +10,15 @@ import java.util.Set;
 import joyeria.modelo.pedidos.Pedido;
 import joyeria.modelo.productos.Producto;
 
-public class Cliente {
+public class Cliente extends Usuario {
+
     private Direccion direccion;
     private String correo;
     private String telefono;
     private Set<Pedido> historialDePedidos;
 
-    public Cliente(Direccion direccion, String correo, String telefono) {
+    public Cliente(Direccion direccion, String correo, String telefono, Set<Pedido> historialDePedidos, int idUsuario, String nombre, String contraseña) {
+        super(idUsuario, nombre, contraseña);
         this.direccion = direccion;
         this.correo = correo;
         this.telefono = telefono;
