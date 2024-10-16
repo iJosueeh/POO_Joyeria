@@ -11,6 +11,7 @@ import joyeria.modelo.usuarios.Usuario;
 
 public class GestionUsuario implements IUsuario {
 
+    @Override
     public Cliente buscarClientePorId(int idCliente, List<Cliente> listaCliente) {
         for (Cliente cliente : listaCliente) {
             if (cliente.getIdUsuario() == idCliente) {
@@ -20,6 +21,16 @@ public class GestionUsuario implements IUsuario {
         return null;
     }
 
+    @Override
+    public Cliente buscarClientePorNombre(String nombreCliente, List<Cliente> listaCliente){
+        for (Cliente cliente : listaCliente) {
+           if (cliente.getNombre().equalsIgnoreCase(nombreCliente)) {
+               return cliente;
+           } 
+        }
+        return null;
+    }
+    
     @Override
     public void registrarUsuario(Usuario usuario) {
     }
