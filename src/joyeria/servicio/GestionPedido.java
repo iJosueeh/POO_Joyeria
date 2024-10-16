@@ -19,8 +19,10 @@ public class GestionPedido implements IGestionPedido {
     private int contador;
     private Scanner scanner;
 
-    public GestionPedido(Scanner scanner) {
+    public GestionPedido() {
         this.scanner = scanner;
+        this.contador = 0;
+        this.productosDisponibles = productosDisponibles;
         this.pedidos = new HashMap<>();
     }
 

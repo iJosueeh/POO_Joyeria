@@ -9,19 +9,17 @@ import joyeria.menus.CuponesYReseñas.GestionCupones;
 import joyeria.menus.CuponesYReseñas.GestionReseñas;
 import joyeria.menus.pedidos.GestionPedidos;
 import joyeria.menus.usuarios.GestionUsuario;
-import joyeria.modelo.usuarios.Cliente;
 
 public class AdminMenu {
-    
+
     GestionReseñas menuReseñas = new GestionReseñas();
     GestionCupones menuCupones = new GestionCupones();
     GestionPedidos menuPedidos = new GestionPedidos();
     GestionUsuario menuUsuario = new GestionUsuario();
-    Cliente cliente;
-    
+
     public void mostrarMenu(Scanner scanner) {
         boolean continuarMenu = true;
-        
+
         do {
             System.out.println("\n>>=================================================<<");
             System.out.println("    Menú Administrativo - Joyas del Corazón");
@@ -36,7 +34,7 @@ public class AdminMenu {
             System.out.println("→ [8] Cerrar Programa");
             System.out.print("Seleccione su opción: ");
             int opcionMenu = scanner.nextInt();
-            
+
             switch (opcionMenu) {
                 case 1:
                     menuUsuario.mostrarMenu(scanner);
@@ -45,7 +43,7 @@ public class AdminMenu {
                     System.out.println("Gestion de Productos");
                     break;
                 case 3:
-                    menuPedidos.mostrarMenu(scanner, cliente);
+                    menuPedidos.mostrarMenu(scanner);
                     break;
                 case 4:
                     menuCupones.mostrarMenu(scanner);
@@ -69,7 +67,7 @@ public class AdminMenu {
                 default:
                     System.out.println("Opción no valida, ingresa el número indicado en las opciones.\n");
             }
-            
+
         } while (continuarMenu);
     }
 }
