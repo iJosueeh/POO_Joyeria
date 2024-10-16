@@ -6,10 +6,12 @@ package joyeria.menus.roles;
 
 import java.util.Scanner;
 import joyeria.menus.pedidos.GestionPedidos;
+import joyeria.menus.usuarios.GestionUsuario;
 
 public class AdminMenu {
 
     GestionPedidos menuPedidos = new GestionPedidos();
+    GestionUsuario menuUsuario = new GestionUsuario();
     
     public void mostrarMenu(Scanner scanner) {
         boolean continuarMenu = true;
@@ -31,7 +33,7 @@ public class AdminMenu {
             
             switch (opcionMenu) {
                 case 1:
-                    System.out.println("Gestion de Usuarios");
+                    menuUsuario.mostrarMenu(scanner);
                     break;
                 case 2:
                     System.out.println("Gestion de Productos");
