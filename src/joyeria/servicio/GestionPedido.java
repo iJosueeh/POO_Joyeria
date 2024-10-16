@@ -34,7 +34,7 @@ public class GestionPedido implements IGestionPedido {
             for (Map.Entry<Producto, Integer> productos : pedido.getProductos().entrySet()) {
                 Producto producto = productos.getKey();
                 int cantidad = productos.getValue();
-                // System.out.println("- " + producto.getNombre() + " (Cantidad: ) " + cantidad + ", Precio: " + producto.getPrecio() + ")";
+                System.out.println("- " + producto.getNombre() + " (Cantidad: " + cantidad + ", Precio: " + producto.getPrecio() + ")");
             }
             System.out.println("Total: " + pedido.getTotal());
         } else {
@@ -44,7 +44,15 @@ public class GestionPedido implements IGestionPedido {
     
     @Override
     public void realizarPedido(Pedido pedido) {
+        if (pedido.getProductos().isEmpty()) {
+            System.out.println("No hay productos agregados.");
+            return;
+        }
         
+        pedido.setIdPedido(++contador);
+        pedidos.put(pedido.getIdPedido(), pedido);
+        
+        System.out.println("Pedido realizado con exito. ID del Pedido: " + pedido.getIdPedido());
     }
 
     @Override
