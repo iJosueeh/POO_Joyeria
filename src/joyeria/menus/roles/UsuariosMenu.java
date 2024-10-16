@@ -7,6 +7,8 @@ package joyeria.menus.roles;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import joyeria.menus.CuponesYReseñas.VerCupones;
+import joyeria.menus.CuponesYReseñas.VerReseñas;
 import joyeria.modelo.usuarios.Usuario;
 
 public class UsuariosMenu {
@@ -18,7 +20,10 @@ public class UsuariosMenu {
         usuariosRegistrados = new HashMap<>();
         idUsuario = 1;
     }
-
+    
+    VerReseñas verReseñas = new VerReseñas();
+    VerCupones verCupones = new VerCupones();
+    
     public void mostrarMenu(Scanner scanner) {
         if (!menuUsuario(scanner)) {
             return;
@@ -55,10 +60,10 @@ public class UsuariosMenu {
                     System.out.println("Gestionar perfil...");
                     break;
                 case 5:
-                    System.out.println("Canjeando cupon...");
+                    verCupones.VerCupones(scanner);
                     break;
                 case 6:
-                    System.out.println("Viendo reseñas de productos...");
+                    verReseñas.MostrarReseñas(scanner);
                     break;
                 case 7:
                     System.out.println("Volviendo al menú principal..\n");

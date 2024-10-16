@@ -1,10 +1,11 @@
 package joyeria.menus.CuponesYReseñas;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class VerCupones{
      
-    public void VerCupones() {
+    public void VerCupones(Scanner scanner) {
        HashMap<String, Double> cupones = AgregarCupones.obtenerCupones();
 
         if (cupones.isEmpty()) {

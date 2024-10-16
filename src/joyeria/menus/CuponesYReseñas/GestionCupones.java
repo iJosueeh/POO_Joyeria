@@ -33,7 +33,7 @@ public class GestionCupones {
                     eliminarCupones.EliminarCupones(scanner);
                     break;
                 case 3:
-                    verCupones.VerCupones();
+                    verCupones.VerCupones(scanner);
                     break;
                 case 4:
                     System.out.println("Regresando al menú...");
