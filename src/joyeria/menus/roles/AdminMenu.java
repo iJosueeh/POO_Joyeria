@@ -5,11 +5,15 @@
 package joyeria.menus.roles;
 
 import java.util.Scanner;
+import joyeria.menus.CuponesYReseñas.GestionCupones;
+import joyeria.menus.CuponesYReseñas.GestionReseñas;
 import joyeria.menus.pedidos.GestionPedidos;
 import joyeria.menus.usuarios.GestionUsuario;
 
 public class AdminMenu {
-
+    
+    GestionReseñas menuReseñas = new GestionReseñas();
+    GestionCupones menuCupones = new GestionCupones();
     GestionPedidos menuPedidos = new GestionPedidos();
     GestionUsuario menuUsuario = new GestionUsuario();
     
@@ -42,10 +46,10 @@ public class AdminMenu {
                     menuPedidos.mostrarMenu(scanner);
                     break;
                 case 4:
-                    System.out.println("Gestion de Cupones");
+                    menuCupones.mostrarMenu(scanner);
                     break;
                 case 5:
-                    System.out.println("Gestion de Reseñas");
+                    menuReseñas.mostrarMenu(scanner);
                     break;
                 case 6:
                     System.out.println("Ver reportes");

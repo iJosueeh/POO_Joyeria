@@ -4,7 +4,12 @@
  */
 package joyeria.interfaces;
 
-
 public interface IReseña {
+    
+     void AgregarCupones();
+     void EliminarCupones();
+     void VerCupones();
+     void DejarReseñas();
+     void MostrarReseñas();
     
 }
