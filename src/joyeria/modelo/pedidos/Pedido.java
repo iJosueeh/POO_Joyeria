@@ -67,23 +67,21 @@ public class Pedido {
         this.total = total;
     }
 
-    public void agregarPedido(Producto productos, int cantidad) {
-        if (productos.contain) {
-            pedidos.put(producto.getId_Producto(), productos);
+    public void agregarPedido(Producto producto, int cantidad) {
+        //  Si el producto se encuentra en el pedido, sumamos la cantidad
+        if (productos.containsKey(producto)) {
+            productos.put(producto, productos.get(producto) * cantidad);
         } else {
-            pedidos.put(idproducto, producto);
+            productos.put(producto, cantidad);
         }
-
         calcularTotal();
     }
 
-    public void eliminarPedido(Pedido pedidoEliminar) {
-
-        if (productos.containsKey(pedidoEliminar)) {
-            productos.remove(pedidoEliminar);
+    public void eliminarPedido(Producto producto) {
+        if (productos.containsKey(producto)) {
+            productos.remove(producto);
             calcularTotal();
         }
-
     }
 
     public void calcularTotal() {
@@ -92,11 +90,10 @@ public class Pedido {
         // Calculando el total iterando cada producto almacenado
         for (Map.Entry<Producto, Integer> producto : productos.entrySet()) {
             Producto productos = producto.getKey();
-            double precio = productos.getPrecio();
-            totalCompra += productos.getPrecio();
+            double cantidad = producto.getValue();
+            totalCompra += productos.getPrecio() * cantidad;
         }
 
         this.total = totalCompra;
     }
-
 }
