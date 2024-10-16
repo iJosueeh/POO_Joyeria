@@ -5,9 +5,11 @@
 package joyeria.servicio;
 
 import java.util.List;
+import joyeria.interfaces.IUsuario;
 import joyeria.modelo.usuarios.Cliente;
+import joyeria.modelo.usuarios.Usuario;
 
-public class GestionUsuario {
+public class GestionUsuario implements IUsuario {
 
     public Cliente buscarClientePorId(int idCliente, List<Cliente> listaCliente) {
         for (Cliente cliente : listaCliente) {
@@ -16,5 +18,22 @@ public class GestionUsuario {
             }
         }
         return null;
+    }
+
+    @Override
+    public void registrarUsuario(Usuario usuario) {
+    }
+
+    @Override
+    public void modificarPerfil() {
+    }
+
+    @Override
+    public Boolean verificarUsuario(String correo, String contraseña) {
+        return true;
+    }
+
+    @Override
+    public void eliminarUsuario(Usuario usuario) {
     }
 }
