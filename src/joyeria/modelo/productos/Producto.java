@@ -1,16 +1,17 @@
-
 package joyeria.modelo.productos;
 
 import java.util.List;
 
 public class Producto {
+
     //Atributos
     private int id_Producto;
     private String nombre;
     private String descripcion;
     private double precio;
+    private int cantidad;
     private int stock;
-    private List<Proveedor>proveedores;
+    private List<Proveedor> proveedores;
 
     public Producto(int id_Producto, String nombre, String descripcion, double precio, int stock, List<Proveedor> proveedores) {
         this.id_Producto = id_Producto;
@@ -57,6 +58,14 @@ public class Producto {
         return stock;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
     public void setStock(int stock) {
         this.stock = stock;
     }
@@ -68,14 +77,14 @@ public class Producto {
     public void setProveedores(List<Proveedor> proveedores) {
         this.proveedores = proveedores;
     }
-    
-    public void actualizarStock(int cantidad){
-        if ( cantidad < 0 && Math.abs(cantidad) > stock){
+
+    public void actualizarStock(int cantidad) {
+        if (cantidad < 0 && Math.abs(cantidad) > stock) {
             System.out.println("El Stock no puede estar por debajo de 0");
-            
-        }else{
-            this.stock+= cantidad;
-            System.out.println("Stock actualizado. Nuevo Stock : "+ this.stock);
+
+        } else {
+            this.stock += cantidad;
+            System.out.println("Stock actualizado. Nuevo Stock : " + this.stock);
         }
     }
 
@@ -83,5 +92,5 @@ public class Producto {
     public String toString() {
         return "Producto{" + "id_Producto=" + id_Producto + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio + ", stock=" + stock + ", proveedores=" + proveedores + '}';
     }
-    
+
 }
