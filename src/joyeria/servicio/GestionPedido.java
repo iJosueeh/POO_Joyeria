@@ -70,7 +70,9 @@ public class GestionPedido implements IGestionPedido {
     public Producto buscarProductoID(int idProducto) {
         for (Producto producto : productosDisponibles) {
             if (producto.getId_Producto() == idProducto) {
-                return producto;
+                return producto; // Retorna el producto si lo encuentra
             }
-            return null;
         }
+        return null; 
+    }
+}

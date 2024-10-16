@@ -20,6 +20,12 @@ public class AgregarPedidos {
     }
 
     public void mostrarMenu(Scanner scanner, Cliente cliente) {
+
+        if (cliente == null) {
+            System.out.println("El cliente no fue encontrado o no fue proporcionado correctamente.");
+            return; 
+        }
+
         System.out.println("Ingresa el nombre del Cliente: ");
         String nombreCliente = scanner.nextLine();
 
@@ -28,8 +34,9 @@ public class AgregarPedidos {
             System.out.println("Productos disponibles: ");
 
             for (Producto producto : productosDisponibles) {
-                if (producto.equals(cliente.getIdUsuario()))
-                System.out.println("- ID " + producto.getId_Producto() + ", Nombre: " + producto.getNombre() + ", Precio: " + producto.getPrecio());
+                if (producto.equals(cliente.getIdUsuario())) {
+                    System.out.println("- ID " + producto.getId_Producto() + ", Nombre: " + producto.getNombre() + ", Precio: " + producto.getPrecio());
+                }
             }
 
             LocalDate fechaActual = LocalDate.now();
