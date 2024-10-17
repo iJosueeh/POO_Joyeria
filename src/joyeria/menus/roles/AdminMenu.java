@@ -5,15 +5,21 @@
 package joyeria.menus.roles;
 
 import java.util.Scanner;
+import joyeria.menus.CuponesYReseñas.GestionCupones;
+import joyeria.menus.CuponesYReseñas.GestionReseñas;
 import joyeria.menus.pedidos.GestionPedidos;
+import joyeria.menus.usuarios.GestionUsuario;
 
 public class AdminMenu {
 
+    GestionReseñas menuReseñas = new GestionReseñas();
+    GestionCupones menuCupones = new GestionCupones();
     GestionPedidos menuPedidos = new GestionPedidos();
-    
+    GestionUsuario menuUsuario = new GestionUsuario();
+
     public void mostrarMenu(Scanner scanner) {
         boolean continuarMenu = true;
-        
+
         do {
             System.out.println("\n>>=================================================<<");
             System.out.println("    Menú Administrativo - Joyas del Corazón");
@@ -28,10 +34,10 @@ public class AdminMenu {
             System.out.println("→ [8] Cerrar Programa");
             System.out.print("Seleccione su opción: ");
             int opcionMenu = scanner.nextInt();
-            
+
             switch (opcionMenu) {
                 case 1:
-                    System.out.println("Gestion de Usuarios");
+                    menuUsuario.mostrarMenu(scanner);
                     break;
                 case 2:
                     System.out.println("Gestion de Productos");
@@ -40,10 +46,10 @@ public class AdminMenu {
                     menuPedidos.mostrarMenu(scanner);
                     break;
                 case 4:
-                    System.out.println("Gestion de Cupones");
+                    menuCupones.mostrarMenu(scanner);
                     break;
                 case 5:
-                    System.out.println("Gestion de Reseñas");
+                    menuReseñas.mostrarMenu(scanner);
                     break;
                 case 6:
                     System.out.println("Ver reportes");
@@ -61,7 +67,7 @@ public class AdminMenu {
                 default:
                     System.out.println("Opción no valida, ingresa el número indicado en las opciones.\n");
             }
-            
+
         } while (continuarMenu);
     }
 }
