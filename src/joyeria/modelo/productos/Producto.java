@@ -2,8 +2,9 @@
 package joyeria.modelo.productos;
 
 import java.util.List;
+import joyeria.interfaces.IProducto;
 
-public class Producto {
+public class Producto implements IProducto {
     //Atributos
     private int id_Producto;
     private String nombre;
@@ -83,5 +84,24 @@ public class Producto {
     public String toString() {
         return "Producto{" + "id_Producto=" + id_Producto + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio + ", stock=" + stock + ", proveedores=" + proveedores + '}';
     }
-    
+     @Override
+    public void agregarProducto() {
+        System.out.println("Producto agregado: " + nombre);
+    }
+
+    @Override
+    public void eliminarProducto() {
+        System.out.println("Producto eliminado: " + nombre);
+    }
+
+    @Override
+    public void actualizarProducto() {
+        System.out.println("Producto actualizado: " + nombre);
+    }
+
+    @Override
+    public void verProducto() {
+        System.out.println("ID: " + id_Producto + ", Nombre: " + nombre + ", Precio: " + precio + ", Stock: " + stock);
+    }
 }
+
