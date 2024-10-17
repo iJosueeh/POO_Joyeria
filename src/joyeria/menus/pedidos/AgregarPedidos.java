@@ -5,6 +5,7 @@
 package joyeria.menus.pedidos;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import joyeria.modelo.pedidos.Pedido;
@@ -21,18 +22,23 @@ public class AgregarPedidos {
     GestionUsuario gestionarUsuarios;
 
     public AgregarPedidos() {
-        this.productosDisponibles = productosDisponibles;
-        this.clientes = clientes;
-        this.gestionarUsuarios = new GestionUsuario();
+        this.productosDisponibles = new ArrayList<>();
+        this.clientes = new ArrayList<>();
+        this.gestionarUsuarios = new GestionUsuario(clientes);
         this.gestionarUsuarios = new GestionUsuario();
     }
 
     public void mostrarMenu(Scanner scanner) {
 
+        if (clientes.isEmpty()) {
+            System.out.println("No hay clientes registrados. Por favor, registre un cliente antes de continuar.");
+            return;
+        }
+
         System.out.println("Ingresa el nombre del Cliente: ");
         String nombreCliente = scanner.nextLine();
 
-        Cliente cliente = gestionarUsuarios.buscarClientePorNombre(nombreCliente, clientes);
+        Cliente cliente = gestionarUsuarios.buscarClientePorNombre(nombreCliente);
 
         if (cliente == null && clientes.isEmpty()) {
             System.out.println("El cliente no fue encontrado o no fue proporcionado correctamente.");

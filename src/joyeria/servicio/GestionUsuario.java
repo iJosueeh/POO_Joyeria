@@ -18,6 +18,10 @@ public class GestionUsuario implements IUsuario {
         this.listaCliente = new ArrayList<>();
     }
 
+    public GestionUsuario(List<Cliente> listaCliente) {
+        this.listaCliente = listaCliente != null ? listaCliente : new ArrayList<>();
+    }
+
     @Override
     public Cliente buscarClientePorId(int idCliente, List<Cliente> listaCliente) {
         for (Cliente cliente : listaCliente) {
@@ -29,17 +33,22 @@ public class GestionUsuario implements IUsuario {
     }
 
     @Override
-    public Cliente buscarClientePorNombre(String nombreCliente, List<Cliente> listaCliente){
-        for (Cliente cliente : listaCliente) {
-           if (cliente.getNombre().equalsIgnoreCase(nombreCliente)) {
-               return cliente;
-           } else {
-               System.out.println("No hay clientes registrados.");
-           }
+    public Cliente buscarClientePorNombre(String nombreCliente) {
+        if (listaCliente == null || listaCliente.isEmpty()) {
+            System.out.println("No hay clientes registrados.");
+            return null;
         }
+
+        for (Cliente cliente : listaCliente) {
+            if (cliente.getNombre().equalsIgnoreCase(nombreCliente)) {
+                return cliente; 
+            }
+        }
+
+        System.out.println("No se encontró ningún cliente con el nombre: " + nombreCliente);
         return null;
     }
-    
+
     @Override
     public void registrarUsuario(Usuario usuario) {
     }

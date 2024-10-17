@@ -26,6 +26,14 @@ public class GestionPedido implements IGestionPedido {
         this.pedidos = new HashMap<>();
     }
 
+    public Map<Integer, Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public List<Producto> getProductosDisponibles() {
+        return productosDisponibles;
+    }
+
     public void mostrarPedido(int idPedido) {
         Pedido pedido = pedidos.get(idPedido);
 
