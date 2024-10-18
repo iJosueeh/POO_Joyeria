@@ -37,6 +37,8 @@ public class AdminMenu {
 
             switch (opcionMenu) {
                 case 1:
+                    //en esta parte arroja error debido a que falta almacenar los datos
+                    //en una base de datos
                     menuUsuario.mostrarMenu(scanner);
                     break;
                 case 2:
