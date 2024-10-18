@@ -12,6 +12,10 @@ import joyeria.menus.CuponesYReseñas.VerReseñas;
 import joyeria.modelo.usuarios.Usuario;
 
 public class UsuariosMenu {
+    
+    private int totalIniciosSesion; 
+    private int totalUsuariosRegistrados; 
+    private Map<String, String> notificaciones;
 
     private Map<Integer, Usuario> usuariosRegistrados;
     private int idUsuario;
@@ -19,6 +23,9 @@ public class UsuariosMenu {
     public UsuariosMenu() {
         usuariosRegistrados = new HashMap<>();
         idUsuario = 1;
+        totalIniciosSesion = 0;
+        totalUsuariosRegistrados = 0;
+        notificaciones = new HashMap<>();
     }
     
     VerReseñas verReseñas = new VerReseñas();

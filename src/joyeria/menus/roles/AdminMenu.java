@@ -12,6 +12,13 @@ import joyeria.menus.usuarios.GestionUsuario;
 
 public class AdminMenu {
 
+    // Atributos adicionales
+    private String adminId; // 
+    private int totalUsers;  // 
+    private int totalOrders;  // 
+    private int totalCoupons;  // 
+
+
     GestionReseñas menuReseñas = new GestionReseñas();
     GestionCupones menuCupones = new GestionCupones();
     GestionPedidos menuPedidos = new GestionPedidos();
