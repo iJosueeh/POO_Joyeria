@@ -17,6 +17,6 @@ public class VerReseñas {
             }
         }        
         System.out.println("\nPresione Enter para regresar al menú de reseñas...");
-        scanner.nextLine();  // Esperar a que el usuario presione Enter
+        scanner.nextLine(); 
     }
 }
